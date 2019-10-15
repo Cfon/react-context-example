@@ -2,6 +2,6 @@
 
 Run scripts from terminal
 
-npm start 
-npm build 
-npm serve build
+npm start <br>
+npm build <br>
+npm serve build <br>
