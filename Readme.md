@@ -2,7 +2,7 @@
 
 Run scripts from terminal
 
-cd react-create-example <br>
+cd react-context-example <br>
 npm install <br>
 npm start <br>
 npm run build <br>
