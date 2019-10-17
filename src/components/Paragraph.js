@@ -1,9 +1,10 @@
 import React from 'react';
+import { withColorContext } from './ColorContext';
 
-const Paragraph = ({ color, background, children }) => (
+export const Paragraph = ({ color, background, children }) => (
     <div style={{ backgroundColor: background }}>
         <span style={{ color }}>{children}</span>
     </div>
 );
 
-export default Paragraph;
+export default withColorContext(Paragraph);

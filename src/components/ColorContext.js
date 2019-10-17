@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import React, { createContext, useContext } from 'react';
 
 const defaultColor = {
     color: 'white',
@@ -6,7 +6,20 @@ const defaultColor = {
 };
 
 const ColorContext = createContext(defaultColor);
-const { Provider, Consumer } = ColorContext;
+const { Provider: ColorProvider, Consumer: ColorConsumer } = ColorContext;
 
-export { Provider, Consumer };
+const withColorContext = WrappedComponent => {
+    return props => {
+        const { color, background } = useContext(ColorContext);
+        return (
+            <WrappedComponent
+                {...props}
+                color={color}
+                background={background}
+            />
+        );
+    };
+};
+
+export { ColorProvider, ColorConsumer, withColorContext };
 export default ColorContext;

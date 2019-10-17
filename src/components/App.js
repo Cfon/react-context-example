@@ -1,8 +1,7 @@
 import React from 'react';
-import { Consumer, Provider } from './ColorContext';
+import { ColorConsumer, ColorProvider } from './ColorContext';
 import Article from './Article';
-import Paragraph from './Paragraph';
-import ParagraphContainer from './ParagraphContainer';
+import ParagraphWithColorContext, { Paragraph } from './Paragraph';
 
 const articles = [
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -14,20 +13,22 @@ const articles = [
 
 const App = () => (
     <div>
-        <Provider value={{ color: 'yellow', background: 'green' }}>
+        <ColorProvider value={{ color: 'yellow', background: 'green' }}>
             <Article title="Context with useContext">
-                <ParagraphContainer>{articles[0]}</ParagraphContainer>
+                <ParagraphWithColorContext>
+                    {articles[0]}
+                </ParagraphWithColorContext>
             </Article>
-        </Provider>
-        <Provider value={{ color: 'yellow', background: 'green' }}>
+        </ColorProvider>
+        <ColorProvider value={{ color: 'yellow', background: 'green' }}>
             <Article title="Context with Consumer">
-                <Consumer>
+                <ColorConsumer>
                     {value => <Paragraph {...value}>{articles[1]}</Paragraph>}
-                </Consumer>
+                </ColorConsumer>
             </Article>
-        </Provider>
+        </ColorProvider>
         <Article title="Default context settings">
-            <ParagraphContainer>{articles[2]}</ParagraphContainer>
+            <ParagraphWithColorContext>{articles[2]}</ParagraphWithColorContext>
         </Article>
         <Article title="Simple article">
             <Paragraph color="blue" background="orange">
