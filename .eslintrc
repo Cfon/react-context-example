@@ -6,7 +6,6 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:vue/recommended",
         "prettier"
     ],
     "globals": {
@@ -23,18 +22,11 @@
     },
     "plugins": [
         "react",
-        "vue",
         "prettier"
     ],
     "rules": {
         "prettier/prettier": ["error"],
-        "no-unused-vars": [
-            "error",
-            {
-                "args": "none",
-                "varsIgnorePattern": "^"
-            }
-        ],
+        "no-unused-vars": "off",
         "no-console": "off",
         "linebreak-style": [
             "error",
